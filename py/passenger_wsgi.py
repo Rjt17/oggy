@@ -1,0 +1,1 @@
+from oggy.wsgi import application

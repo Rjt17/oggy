@@ -1,0 +1,393 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Oggy</title>  
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="../static/favicon.ico" type="image/x-icon" rel="icon"/>
+<link href="../static/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+<link rel="stylesheet" href="../static/css/style.css">
+<script src="https://kit.fontawesome.com/71a4b053bb.js" crossorigin="anonymous"></script>
+<link href="../static/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
+<link href="../static/css/owl.theme.default.min.css" rel="stylesheet" type="text/css"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+
+<script src="../static/js/social.js" crossorigin="anonymous"></script>	<script>
+      
+    
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  <body>
+<section class="container-fluid">
+
+
+<header>
+  
+  <div class='container row w-100'>
+<div class="logo">
+  <a href="https://www.oggy.co.in/"><img src="../static/images/logo.png" class="" alt="logo"></a>
+</div>
+</div>
+
+</header>
+
+<section class="page_text login_bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-10 col-lg-7">
+        <div class="login_form">      <ul class="tab_list">
+      	  <li>
+          <a class="nav-link active" href="https://www.oggy.co.in/login" role="tab">Sign In</a>
+        </li>
+      </ul>
+        <form method="post" id="signInForm">
+            {% csrf_token %}
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=589702176358-rgc4ht137qvgtro9fs4a51fngggsruj8.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.oggy.co.in&state&scope=email%20profile%20openid&approval_prompt=auto"><img src="../static/images/google_icon.svg" width=20px height=20px> Sign In With Google</a>
+
+          </div>
+          
+          <p id="msgError" class="text-danger" style="display:none"></p>
+          <div class="form-group">
+            <input type="text" name="username" class="form-control" id="mobile_no" placeholder="Mobile No.*" required maxlength="10" required  onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
+          </div>
+          
+                    
+          <button type="button" class="btn btn-primary" name="submit" id="sendOtp">Sign In</button>
+                  </form>
+        
+                
+        <form method="post" class="d-none" id="otpForm">
+            {% csrf_token %}
+            <p id="msgOtp" class="text-warning">We have sent OTP on your mobile.</p>
+            <div class="form-group">
+                <input type="text" name="otp" class="form-control" id="otp" placeholder="Enter OTP" required>
+            </div>
+            <a href="https://www.oggy.co.in"><button type="button" class="btn" name="otpLogin" id="otpLogin"><a href="https://www.oggy.co.in">Submit</a></button>
+        </form> 
+        
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <h5>Oggy</h5>
+        <p>The mission is "to be the largest source of information for foodies all around the world to find the ideal resturant with best offers"</p>
+      </div>
+      <!--<div class="col-sm-12 col-md-6 col-lg-3">
+        <h5>Products</h5>
+         <ul>
+           <li><a href="#"><i class="fas fa-angle-right"></i> Food</a></li>
+           <li><a href="#"><i class="fas fa-angle-right"></i> Offers</a></li>
+           <li><a href="#"><i class="fas fa-angle-right"></i> Near By</a></li>
+           <li><a href="#"><i class="fas fa-angle-right"></i> Hot Deals</a></li>
+         </ul>
+      </div>-->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <h5>Useful links</h5>
+         <ul>
+           <li><a href="https://www.oggy.co.in/about-us"><i class="fas fa-angle-right"></i> About</a></li>
+           <li><a href="https://www.oggy.co.in/terms-and-condition"><i class="fas fa-angle-right"></i> Terms & Condition</a></li>
+           <li><a href="https://www.oggy.co.in/privacy-policy"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+           <li><a href="https://www.oggy.co.in/faq"><i class="fas fa-angle-right"></i> FAQ</a></li>
+           <li><a href="https://www.oggy.co.in/contact-us"><i class="fas fa-angle-right"></i> Help</a></li>
+           <li><a href="https://www.oggy.co.in/career"><i class="fas fa-angle-right"></i> Career</a></li>
+         </ul>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <h5>Contact</h5>
+         <ul>
+           <!--<li><i class="fas fa-map-marker-alt"></i> Address : Jaipur Rajasthan</li>
+           <li><a href="tel:02073264987"><i class="fas fa-phone-alt"></i>  Phone : 020 7326 4987 </a></li>-->
+           <li><a href="mailto:contact@oggy.co.in"><i class="fas fa-envelope"></i> Mail : contact@oggy.co.in</a></li>
+         </ul>
+         <h6>We are Social: </h6>
+         <a class="social" href="https://www.facebook.com/team0ggy/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+         <a class="social" href="https://www.instagram.com/team0ggy/" target="_blank"><i class="fab fa-instagram"></i></a>
+         <a class="social" href="https://twitter.com/team0ggy" target="_blank"><i class="fab fa-twitter"></i></a>
+         <!--<a class="social" href="#"><i class="fab fa-google-plus-g"></i></a>
+         <a class="social" href="#"><i class="fab fa-linkedin-in"></i></a>-->
+      </div>
+    </div>
+  </div>
+  <div class="footer_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <p>© 2021 Copyright All Rights Reserved. <a href="https://www.oggy.co.in/">www.oggy.co.in</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</section>
+	
+<!--<script src="http://staging.oggy.co.in//js/jquery-3.4.1.slim.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/custom.js"></script>
+<script src="../static/js/owl.carousel.js"></script>	
+
+<script type="text/javascript">
+    var cId =  "106664";
+
+    (function(d, t) {
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = (document.location.protocol == "https:" ? "https://cdn0.cuelinks.com/js/" : "http://cdn0.cuelinks.com/js/")  + "cuelinksv2.js";
+      document.getElementsByTagName("body")[0].appendChild(s);
+    }());
+</script>
+
+<script>
+    function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId());
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
+}
+</script>
+
+<script>
+
+    $('[data-toggle="tooltip"]').tooltip(); 
+
+    $(document).ready(function() {
+      $('.owl-carousel').owlCarousel({
+          loop: true,
+          autoplay:true,
+          autoplayTimeout:1500,
+          margin: 0,
+          dots: false,
+          nav: true,
+          responsiveClass: true,
+          responsive: {
+              0: {
+                 items: 1,
+                 },
+              600: {
+                 items: 3,
+                 },
+              1000: {
+                 items: 5,
+                }
+            }
+           })
+        });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+<script>
+    $('.logos_prtn').slick({
+        infinite: true,
+        dots: false,
+        prevArrow: false,
+        nextArrow: false,
+        slidesToShow: 8,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        responsive: [
+    {
+        breakpoint: 767,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        }
+    },
+    {
+        breakpoint: 1000,
+        settings: {
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        }
+    }
+    ]
+    });
+  </script>
+  <script>
+    $('.product_item').slick({
+        infinite: true,
+        speed: 5000,
+        centerMode: true,
+        cssEase: 'linear',
+        dots: false,
+        prevArrow: false,
+        nextArrow: false,
+        slidesToShow:4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 0,
+        responsive: [
+    {
+        breakpoint: 767,
+        settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        }
+    },
+    {
+        breakpoint: 1000,
+        settings: {
+        slidesToShow:4,
+        slidesToScroll: 1,
+        }
+    }
+    ]
+    });
+    
+    
+    function searchResult() {
+        
+        var city = $("#search_city").val().toLowerCase();
+        var restaurant = $("#search_restaurant").val().replace(/\s+/g, '-').toLowerCase();
+        restaurant.replace
+        res_search = '';
+        
+        if(city == ''){
+            city = 'jaipur';
+        }
+        
+        if(restaurant != '') {
+            res_search = "/"+restaurant;
+        }
+        
+        location.href="https://www.oggy.co.in/"+city+res_search;
+    }
+  </script>
+  
+<script>
+function forgetPassword(){
+    $("#signInForm").hide();
+    $("#forgetForm").show();
+    $("#forgetForm").removeClass('d-none');
+}
+
+function backToLogin(){
+    $("#signInForm").show();
+    $("#forgetForm").hide().addClass('d-none');
+    $("#otpForm").hide().addClass('d-none');
+}
+
+$("#sendOtp").click(function(){
+    
+    $("#msgError").html('');
+    var mobile_no = $("#mobile_no").val();
+    if(mobile_no == '' || mobile_no.length != 10){
+        $("#msgError").show().html('Please enter correct mobile no.');
+        return false;
+    }
+    
+    $.ajax({
+		url:"ajax.php",
+		type:"POST",
+		data:{"method":"send_login_otp","mobile_no":mobile_no},
+		success:function(data){
+		    
+		    if(data == 1){
+		    
+    		    //$("#forgetForm").hide();
+    		    $("#signInForm").hide();
+                $("#otpForm").show();
+                $("#otpForm").removeClass('d-none');
+		    }else{
+		        $("#msgError").show().html('Please enter correct mobile no.');
+		    }
+		}
+	});
+    
+});
+
+$("#changePassword").click(function(){
+    
+    var mobile_no = $("#mobile_no").val();
+    var otp = $("#otp").val();
+    var newPass = $("#newPass").val();
+    var confirmPass = $("#confirmPass").val();
+    
+    if(newPass != confirmPass){
+        $("#msgOtp").html('New password and confirm password didn\'t match!');
+        return false;
+    }
+    if(otp == ''){
+        $("#msgOtp").html('Please enter OTP!');
+        return false;
+    }
+    if(newPass == ''){
+        $("#msgOtp").html('Please enter password!');
+        return false;
+    }
+    if(confirmPass == ''){
+        $("#msgOtp").html('Please enter confirm password!');
+        return false;
+    }
+    
+    $.ajax({
+		url:"ajax.php",
+		type:"POST",
+		data:{"method":"changePass","mobile_no":mobile_no,"otp":otp,"newPass":newPass,"confirmPass":confirmPass},
+		success:function(data){
+		    
+		    if(data == 1){
+		    
+    		    alert('Password reset successfully');
+    		    location.href = '';
+    		    
+		    }else{
+		        $("#msgOtp").show().html('Please enter correct OTP!');
+		    }
+		}
+	});
+    
+});
+
+
+$("#otpLogin").click(function(){
+    
+    var mobile_no = $("#mobile_no").val();
+    var otp = $("#otp").val();
+    if(otp == ''){
+        $("#msgOtp").html('Please enter OTP!');
+        return false;
+    }
+
+    $.ajax({
+		url:"ajax.php",
+		type:"POST",
+		data:{"method":"loginCheck","otp":otp,"mobile_no":mobile_no},
+		success:function(data){
+		    
+		    if(data == 1){
+		    
+    		    //alert('Password reset successfully');
+    		    location.href = '';
+    		    
+		    }else{
+		        $("#msgOtp").show().html('Please enter correct OTP!');
+		    }
+		}
+	});
+    
+});
+
+</script>
+
+  </body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'sg3plcpnl0106'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
